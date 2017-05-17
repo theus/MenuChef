@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>MenuChef testing</title>
+  <!-- <script src="https://cdn.polyfill.io/v2/polyfill.min.js"></script> -->
+</head>
+<body>
+   <nav class="Header-menu js-Menu">
+      <a href="#" class="Header-menu-link class-foo class-bar">Lorem</a>
+      <a href="#" class="Header-menu-link class-foo class-bar">A ipsum</a>
+      <a href="#" class="Header-menu-link class-foo class-bar">dolor</a>
+      <a href="#" class="Header-menu-link class-foo class-bar">sit</a>
+      <a href="#" class="Header-menu-link class-foo class-bar">amet,</a>
+      <a href="#" class="Header-menu-link class-foo class-bar">consectetur</a>
+      <a href="#" class="Header-menu-link class-foo class-bar">adipisicing</a>
+    </nav><!-- /.Header-menu -->
+
+  <button onclick="MenuChef.toggle(this)">yolo</button>
+
+
+  <script src="MenuChef.js"></script>
+  <script>
+    new MenuChef('.js-Menu a', {
+      theme: {
+        theme: 'side',
+        effectOnOpen: 'smooth'
+      },
+      scheme: 'red',
+      hamburger: 'vortex-r',
+      classes: {
+        only: ['class-foo']
+      }
+    });
+
+    MenuChef.open();
+  </script>
+</body>
+</html>

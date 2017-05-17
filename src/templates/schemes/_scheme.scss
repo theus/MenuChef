@@ -1,0 +1,39 @@
+@import '../mixins';
+
+$scheme: 'black' !default;
+$scheme-bgcolor: #28292E !default;
+$scheme-color: #A0A1A5 !default;
+$scheme-color-hover: darken($scheme-color, 10%) !default;
+
+$cssVars_scheme: (
+  MenuChef-scheme-bgcolor: $scheme-bgcolor,
+  MenuChef-scheme-color: $scheme-color,
+  MenuChef-scheme-color-hover: $scheme-color-hover
+) !default;
+
+$cssVars: () !default;
+$cssVars: map-merge($cssVars, $cssVars_scheme);
+
+.MenuChefOpen[data-scheme=#{$scheme}] {
+	&.is-active {
+    .hamburger-inner, .hamburger-inner::before, .hamburger-inner::after {
+      // background-color: $scheme-color;
+      @include var(background-color, MenuChef-scheme-color);
+    }
+  }
+}
+
+.MenuChef[data-scheme=#{$scheme}] {
+	// background-color: $scheme-bgcolor;
+  @include var(background-color, MenuChef-scheme-bgcolor);
+
+	.MenuChef-links-link {
+		// color: $scheme-color;
+    @include var(color, MenuChef-scheme-color);
+
+		&:hover {
+			// color: $scheme-color-hover;
+      @include var(color, MenuChef-scheme-color-hover);
+		}
+	}
+}
