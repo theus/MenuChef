@@ -1,0 +1,176 @@
+/* -- ESTILOS GERAIS -- */
+.visivel {
+  display: table-row !important;
+}
+
+.tabelinha {
+  // font-family: Arial, Helvetica, sans-serif;
+  border-spacing: 0;
+}
+
+.tabelinha th {
+  padding: 15px 8px;
+  vertical-align: middle;
+}
+
+.tabelinha td {
+  padding: 10px 5px;
+}
+
+.tabelinha th, .tabelinha td {
+  border-bottom: 1px solid #cccccc;
+  // color: #002D61;
+}
+
+.tabelinha tbody tr {
+  width: 100%;
+  display: none;
+}
+
+.tabelinha tfoot td > b {
+  display: none !important;
+}
+
+.tab-rodape {
+  min-width: 275px;
+  display: table;
+  clear: both;
+  padding-top: 15px;
+  // font-family: Arial, Helvetica, sans-serif;
+  font-size: 12px;
+  text-align: left;
+}
+
+.tab-rodape a, .tab-rodape span {
+  font-size: 12px;
+}
+
+.tab-num-itens {
+  float: left;
+  margin: 15px 0 0 10px;
+}
+
+.tab-paginacao {
+  float: right;
+  margin-right: 20px;
+  margin-top: 13px;
+}
+
+.tab-btn-anterior, .tab-btn-proximo {
+  display: inline-block;
+  width:  20px;
+  height: 20px;
+  margin: 0 5px;
+  border-radius: 50%;
+  background-color: #F2F2F2;
+  -webkit-box-shadow: 0 1px 2px 1px #C4C4C4!important;
+  -moz-box-shadow: 0 1px 2px 1px #C4C4C4!important;
+  box-shadow: 0 1px 2px 1px #C4C4C4!important;
+  border: 1px solid #FFF;
+  cursor: pointer;
+  box-sizing: border-box;
+}
+
+.tab-btn-anterior {
+  padding: 3px 0 0 6px;
+}
+
+.tab-btn-proximo {
+  padding: 3px 0 0 7px;
+}
+
+.tab-btn-anterior:after, .tab-btn-proximo:after {
+  content: "";
+  width: 0;
+  height: 0;
+  position: absolute;
+  border-top: 6px solid transparent;
+  border-bottom: 6px solid transparent;
+}
+
+.tab-btn-anterior:after {
+  border-right: 6px solid $color-1;
+}
+
+.tab-btn-proximo:after {
+  border-left: 6px solid $color-1;
+}
+
+.tab-btn-anterior:hover, .tab-btn-proximo:hover {
+  color: #FFFFFF;
+  border: 1px solid $color-1;
+  background-color: $color-1;
+}
+
+.tab-btn-anterior:hover:after {
+  border-right: 6px solid #FFFFFF;
+}
+
+.tab-btn-anterior.btn-inativo:after {
+  border-right: 6px solid #CCCCCC;
+}
+
+.tab-btn-proximo:hover:after {
+  border-left: 6px solid #FFFFFF;
+}
+
+.tab-btn-proximo.btn-inativo:after {
+  border-left: 6px solid #CCCCCC;
+}
+
+.tab-btn-anterior.btn-inativo, .tab-btn-proximo.btn-inativo, .tab-btn-anterior.btn-inativo:hover, .tab-btn-proximo.btn-inativo:hover {
+  color: #CCCCCC;
+  border: 1px solid transparent;
+  background-color: transparent;
+  pointer-events: none;
+  cursor: default;
+}
+
+/* -- ESTILOS DESKTOP -- */
+.tabelinha.estilo-dtp td > b {
+  display: none;
+}
+
+.tabelinha.estilo-dtp th, .tabelinha.estilo-dtp td {
+  text-align: center;
+}
+
+.tabelinha.estilo-dtp tbody tr:nth-child(even) {
+  background: transparent;
+}
+
+.tabelinha.estilo-dtp tbody tr:nth-child(odd) {
+  background: #F9F9F9;
+}
+
+/* -- ESTILOS MOBILE -- */
+.tabelinha.estilo-mob th {
+  display: none;
+}
+
+.tabelinha.estilo-mob td {
+  width: 100%;
+  clear: left;
+  float: left;
+  text-align: left;
+  display: block;
+}
+
+.tabelinha.estilo-mob td > b {
+  width: 35%;
+  display: inline-block;
+}
+
+.tabelinha.estilo-mob td > span {
+  vertical-align: top;
+  max-width: 62%;
+  display: inline-block;
+}
+
+.tabelinha.estilo-mob td:nth-child(even) {
+  background: transparent;
+}
+
+.tabelinha.estilo-mob td:nth-child(odd) {
+  background: #F9F9F9;
+}

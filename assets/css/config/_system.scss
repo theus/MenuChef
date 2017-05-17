@@ -1,0 +1,17 @@
+@charset "utf-8";
+
+$base-dpi: 96!default;
+@warn '$base-dpi' $base-dpi;
+
+@import 'config';
+
+::-moz-selection {
+    color: $selection-text-color;
+    background: $selection-color;
+}
+::selection {
+    color: $selection-text-color;
+    background: $selection-color;
+}
+
+@import '../../fonts/fonts';

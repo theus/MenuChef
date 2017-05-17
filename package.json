@@ -1,0 +1,21 @@
+{
+  "name": "menuchef-site",
+  "version": "1.0.0",
+  "description": "Run npm tasks in projects (globally)",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "babel": "babel -w assets/js/src/main.js --out-file assets/js/main.js -s",
+    "browser-sync": "browser-sync start --server --files \"assets/css/*.css\" \"**/*.html\" \"assets/js/*.js\"",
+    "sass": "node-sass -r assets/css -o assets/css --source-map true",
+    "jade": "jade -P -w index.jade index.html",
+    "nodemon": "nodemon -w assets/css -e scss --exec npm run sass",
+    "template": "gulp",
+    "start": "concurrently -k \"npm run nodemon\" \"npm run browser-sync\" \"npm run template\""
+  },
+  "author": "Matheus Falcão",
+  "license": "ISC",
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-twig": "^0.7.0"
+  }
+}
