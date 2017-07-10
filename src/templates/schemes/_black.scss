@@ -1,0 +1,12 @@
+$scheme: 'black';
+$scheme-bgcolor: #28292E;
+$scheme-color: #A0A1A5;
+$scheme-color-hover: darken($scheme-color, 10%);
+
+$cssVars_scheme: (
+  MenuChef-scheme-bgcolor: $scheme-bgcolor,
+  MenuChef-scheme-color: $scheme-color,
+  MenuChef-scheme-color-hover: $scheme-color-hover
+);
+
+@import 'scheme';

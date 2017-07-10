@@ -1,0 +1,125 @@
+@import 'mixins';
+
+$font: 'Helvetica', 'Arial', sans-serif;
+
+$cssVars: (
+  MenuChef-font-family: $font,
+  MenuChef-font-size: 16px,
+  MenuChef-margin-bottom: 25px,
+  MenuChef-text-transform: uppercase,
+  MenuChef-transition: color linear .15s,
+  MenuChef-font-weight: bold,
+  MenuChef-theme_side-width: 20%,
+  MenuChef-theme_side-min-width: 240px
+) !default;
+
+/*
+ * Hamburgers
+ * @description Tasty CSS-animated hamburgers
+ * @author Jonathan Suh @jonsuh
+ * @site https://jonsuh.com/hamburgers
+ * @link https://github.com/jonsuh/hamburgers
+ */
+@import '../../node_modules/hamburgers/_sass/hamburgers/hamburgers';
+
+// Schemes
+@import 'schemes/black';
+@import 'schemes/yellow';
+@import 'schemes/red';
+@import 'schemes/green';
+@import 'schemes/blue';
+// end schemes
+
+%MenuChefOpen--dir--right {
+  top: 15px;
+  right: 15px;
+}
+
+%MenuChefOpen--dir--left {
+  top: 15px;
+  left: 15px;
+}
+
+body.has-menuOpen {
+  overflow: hidden !important;
+}
+
+.MenuChefOpen {
+  background: transparent;
+  border: 0;
+  position: absolute;
+  z-index: 200;
+  cursor: pointer;
+
+  &.is-active {
+    position: fixed;
+    .hamburger-inner, .hamburger-inner::before, .hamburger-inner::after {
+      background-color: #fff;
+    }
+  }
+
+  &:hover, &:active, &:focus { outline: none; }
+
+  &--dir {
+    &--left { @extend %MenuChefOpen--dir--left; }
+    &--right { @extend %MenuChefOpen--dir--right; }
+  }
+
+  @extend %MenuChefOpen--dir--right;
+
+    // @media (min-width: 768px) { display: none; }
+  }
+
+  // fix specific hamburgers that was overwritten by MenuChefOpen color
+  .hamburger--3dx.is-active .hamburger-inner,
+  .hamburger--3dx-r.is-active .hamburger-inner,
+  .hamburger--3dy.is-active .hamburger-inner,
+  .hamburger--3dy-r.is-active .hamburger-inner,
+  .hamburger--emphatic.is-active .hamburger-inner,
+  .hamburger--emphatic-r.is-active .hamburger-inner,
+  .hamburger--spring.is-active .hamburger-inner,
+  .hamburger--spring-r.is-active .hamburger-inner,
+  .hamburger--stand.is-active .hamburger-inner,
+  .hamburger--stand-r.is-active .hamburger-inner
+  {
+    background-color: transparent;
+  }
+
+  .MenuChef-close {
+    @extend .MenuChefOpen;
+    color: #fff;
+  }
+  .MenuChef-links-link {
+    @include var(font-family, MenuChef-font-family);
+    display: block;
+    color: #fff;
+    @include var(font-size, MenuChef-font-size);
+    @include var(margin-bottom, MenuChef-margin-bottom);
+    @include var(text-transform, MenuChef-text-transform);
+    text-decoration: none;
+    @include var(transition, MenuChef-transition);
+    @include var(font-weight, MenuChef-font-weight);
+
+    &:hover {
+      text-decoration: none;
+    }
+  }
+    .MenuChef-wrapper {
+      display:table-cell;
+      vertical-align:middle;
+    }
+    .MenuChef-links {
+      margin-left: auto;
+      margin-right: auto;
+      text-align: center;
+    }
+
+body.has-MenuChef--effect--blur { transition: filter linear .3s; }
+body.has-MenuChef--effect--blur.has-menuChefOpen > *:not([class*="MenuChef"]) {
+  -webkit-filter: blur(2px);
+       -o-filter: blur(2px);
+          filter: blur(2px);
+}
+
+@import 'full';
+@import 'side';
