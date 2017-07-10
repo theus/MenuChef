@@ -3,7 +3,7 @@ var twig = require('gulp-twig');
 const version = require('./package.json').version
 
 gulp.task('compile', function () {
-    return gulp.src(['./src/**/*.twig', '!./src/base.twig', '!./src/macros.twig', '!./src/**/_*.twig'])
+    return gulp.site(['./site/**/*.twig', '!./site/base.twig', '!./site/macros.twig', '!./site/**/_*.twig'])
         .pipe(twig({
             data: {
               version: version
@@ -12,6 +12,6 @@ gulp.task('compile', function () {
         .pipe(gulp.dest('./'));
 });
 
-gulp.watch('./src/**/*.twig', ['compile']);
+gulp.watch('./site/**/*.twig', ['compile']);
 
 gulp.task('default', ['compile']);
