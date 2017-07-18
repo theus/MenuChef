@@ -16,13 +16,13 @@ import buttonDefault from './templates/button.html'
 import { version as PKG_VERSION } from '../package.json'
 
 /**
-     * @group constructor
-     * @variable ingredients
-     * @type string
-     * @default --
-     * @description HTML selector for the anchor tags: eg: “.menu a” or “.menu-link” if ”.menu-link” it’s a NODE Collection of links
-     * @required true
-     */
+ * @module constructor
+ * @variable ingredients
+ * @type string
+ * @default --
+ * @description HTML selector for the anchor tags: eg: “.menu a” or “.menu-link” if ”.menu-link” it’s a NODE Collection of links
+ * @required true
+ */
 class MenuChef {
   constructor (ingredients = false, options = {}) {
     if (ingredients === false) throw new Error('MenuChef needs link elements passed as ingredients')
@@ -54,7 +54,7 @@ class MenuChef {
     const SCHEMES = ['black', 'yellow', 'red', 'green', 'blue']
 
     /**
-     * @group constructor
+     * @module constructor
      * @variable options
      * @type object
      * @default options
@@ -62,35 +62,40 @@ class MenuChef {
      */
     const DEFAULTS = {
       /**
-       * @group options
+       * @module options
+       * @variable theme
        * @type string, object
        * @default full
        * @description Theme string (name)/object to personalize specific details of MenuChef theme
        */
       theme: {
         /**
-       * @group theme
+       * @module theme
+       * @variable theme
        * @type string
        * @default full
        * @description Theme string (name)/object to personalize specific details of MenuChef theme
        */
         theme: 'full',
         /**
-       * @group theme
+       * @module theme
+       * @variable effectOnOpen
        * @type string
        * @default --
        * @description Effects on open the menu. The effects available depends of theme. <br><br> side: smooth
        */
         effectOnOpen: '',
         /**
-       * @group theme
+       * @module theme
+       * @variable direction
        * @type string
        * @default right
        * @description Direction to open the menu. Directions available depends of theme. <br><br>side: left, right
        */
         direction: '',
         /**
-       * @group theme
+       * @module theme
+       * @variable pageEffect
        * @type string
        * @default --
        * @description Effects on page when the menu is opening. Effects available depends of theme. <br><br>side: blur
@@ -98,28 +103,32 @@ class MenuChef {
         pageEffect: ''
       },
       /**
-       * @group options
+       * @module options
+       * @variable scheme
        * @type string
        * @default black
        * @description Default schemes colors of MenuChef. You can <a href="#Theming-Vars">modify by yourself</a><br><br>Options: black, yellow, red, green, blue
        */
       scheme: 'black',
       /**
-       * @group options
+       * @module options
+       * @variable closeOnClick
        * @type boolean
        * @default true
        * @description Close MenuChef when it’s clicked in a link
        */
       closeOnClick: true,
       /**
-       * @group options
+       * @module options
+       * @variable closeOnClickOutside
        * @type boolean
        * @default true
        * @description Close MenuChef when it’s clicked outside of kitchen (the menu it self)
        */
       closeOnClickOutside: true,
       /**
-       * @group options
+       * @module options
+       * @variable button
        * @type string
        * @default hamburger
        * @description HTML of MenuChef's button
@@ -132,49 +141,56 @@ class MenuChef {
       },
 
       /**
-       * @group options
+       * @module options
+       * @variable hamburger
        * @type string
        * @default boring
        * @description This option is powered by awesome lib <a href="https://jonsuh.com/hamburgers/" target="_blank">Hamburgers</a>, by Jonathan Sug. The operation can be seen at <a href="https://jonsuh.com/hamburgers/" target="_blank">lib demo site</a><br><br>Options: 3dx, 3dx-r, 3dy, 3dy-r, arrow, arrow-r, arrowalt, arrowalt-r, boring, collapse, collapse-r, elastic, elastic-r, emphatic, emphatic-r, slider, slider-r, spin, spin-r, spring, spring-r, stand, stand-r, squeeze, vortex, vortex-r
        */
       hamburger: 'boring',
       /**
-       * @group options
+       * @module options
+       * @variable bodyClassOpen
        * @type string
        * @default --
        * @description Append a class in <body> when the menu is opened
        */
       bodyClassOpen: '',
       /**
-       * @group options
+       * @module options
+       * @variable kitchenClass
        * @type string
        * @default --
        * @description Append a class in MenuChef wrapper <br><br>ps. Kitchen is the wrapper of MenuChef, where all the ingredients are cooked
        */
       kitchenClass: '',
       /**
-       * @group options
+       * @module options
+       * @variable kitchenOpenClass
        * @type string
        * @default --
        * @description Append a class in MenuChef when the same is opened
        */
       kitchenOpenClass: '',
       /**
-       * @group options
+       * @module options
+       * @variable onOpen
        * @type function
        * @default --
        * @description Callback function that's called when MenuChef is open
        */
       onOpen: () => {},
       /**
-       * @group options
+       * @module options
+       * @variable onClose
        * @type function
        * @default --
        * @description Callback function that's called when MenuChef is close
        */
       onClose: () => {},
       /**
-       * @group options
+       * @module options
+       * @variable onClick
        * @type function
        * @default --
        * @description Callback function that's called when a link in MenuChef is clicked
@@ -316,7 +332,7 @@ class MenuChef {
     self._isOpen = null
 
     /**
-       * @group public variables
+       * @module public_variables
        * @variable MenuChef.version
        * @type string
        * @default version
@@ -324,7 +340,7 @@ class MenuChef {
        */
     setPublicVar(MenuChef, self, 'version')
     /**
-       * @group public variables
+       * @module public_variables
        * @variable MenuChef.isOpen
        * @type boolean
        * @default null
@@ -333,7 +349,8 @@ class MenuChef {
     setPublicVar(MenuChef, self, 'isOpen', '_isOpen')
 
     /**
-     * @group public methods
+     * @module public_methods
+     * @variable MenuChef.open()
      * @type function
      * @default --
      * @description Open MenuChef
@@ -347,7 +364,8 @@ class MenuChef {
       self._isOpen = true
     }
     /**
-     * @group public methods
+     * @module public_methods
+     * @variable MenuChef.close()
      * @type function
      * @default --
      * @description Close MenuChef
@@ -361,7 +379,8 @@ class MenuChef {
       self._isOpen = false
     }
     /**
-     * @group public methods
+     * @module public_methods
+     * @variable MenuChef.toggle([this, classe])
      * @type function
      * @default All parameters are optional <br> <code>classe</code> default is <code>is-active</code>
      * @description Toggle MenuChef<br><br>When <code>this</code> is passed, toggle is fired and return the <code>classe</code> to the element <code>this</code>. Only works when the function toggle() itself is triggered
@@ -398,7 +417,8 @@ class MenuChef {
       } catch (e) {}
     }
     /**
-     * @group public methods
+     * @module public_methods
+     * @variable MenuChef.destroy()
      * @type function
      * @default All parameters are optional <br> <code>classe</code> default is <code>is-active</code>
      * @description Destroy MenuChef instance, HTML inserts and watchers

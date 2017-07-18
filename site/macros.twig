@@ -1,7 +1,7 @@
 {% macro item(item, linkSection, linkName) %}
 	{% if not linkName %} {% set linkName = item %} {% endif %}
-	<td id="{{linkSection}}{% if linkName %}-{{linkName}}{% endif %}">
-		<a href="#{{linkSection}}{% if linkName %}-{{linkName}}{% endif %}" class="NutricionalTable-table-link"><i class="fa fa-link"></i></a>
+	<td id="{{linkSection|slugify}}{% if linkName %}-{{linkName|slugify}}{% endif %}">
+		<a href="#{{linkSection|slugify}}{% if linkName %}-{{linkName|slugify}}{% endif %}" class="NutricionalTable-table-link"><i class="fa fa-link"></i></a>
 		{{item}}
 	</td>
 {% endmacro %}

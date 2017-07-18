@@ -204,19 +204,14 @@
           </tr>
         </thead>
         <tbody>
-          <tr>
-            {{ helper.item('ingredients', 'Constructor') }}
-            <td><span class="label label-default label--string">string</span></td>
-            <td>--</td>
-            <td>HTML selector for the anchor tags: eg: “.menu a” or “.menu-link” if ”.menu-link” it’s a NODE Collection of links</td>
-          </tr>
-
-          <tr>
-            {{ helper.item('options', 'Constructor') }}
-            <td><span class="label label-default label--object">object</span></td>
-            <td>options</td>
-            <td>Overwrite the {{ helper.linkTo('default options', 'Default-Options') }} of MenuChef</td>
-           </tr>
+          {% for item in doc.constructor  %}
+            <tr>
+              {{ helper.item(search(item.tags, 'title', 'variable').description, item.name) }}
+              <td>{{ label(search(item.tags, 'title', 'type').description) }}</td>
+              <td>{{ search(item.tags, 'title', 'default').description }}</td>
+              <td>{{ search(item.tags, 'title', 'description').description }}</td>
+            </tr>
+          {% endfor %}
         </tbody>
       </table>
 
@@ -231,101 +226,14 @@
           </tr>
         </thead>
         <tbody>
-          <tr>
-            {{ helper.item('theme', 'Options') }}
-            <td>
-              <span class="label label-default label--string">string</span>
-              <span class="label label-default label--object">object</span>
-            </td>
-            <td>full</td>
-            <td>Theme string (name)/object to personalize specific details of MenuChef theme</td>
-          </tr>
-
-          <tr>
-            {{ helper.item('scheme', 'Options') }}
-            <td>
-              <span class="label label-default label--string">string</span>
-            </td>
-            <td>black</td>
-            <td>
-              Default schemes colors of MenuChef. You can {{ helper.linkTo('modify by yourself', 'Theming-Vars') }}.
-
-              <br><br>
-              Options: black, yellow, red, green, blue
-            </td>
-          </tr>
-
-          <tr>
-            {{ helper.item('closeOnClick', 'Options') }}
-            <td><span class="label label-default label--boolean">boolean</span></td>
-            <td>true</td>
-            <td>Close MenuChef when it’s clicked in a link</td>
-          </tr>
-
-          <tr>
-            {{ helper.item('closeOnClickOutside', 'Options') }}
-            <td><span class="label label-default label--boolean">boolean</span></td>
-            <td>true</td>
-            <td>Close MenuChef when it’s clicked outside of kitchen (the menu it self)</td>
-          </tr>
-
-          <tr>
-            {{ helper.item('hamburger', 'Options') }}
-            <td><span class="label label-default label--string">string</span></td>
-            <td>boring</td>
-            <td>
-              This option is powered by awesome lib <a href="https://jonsuh.com/hamburgers/" target="_blank">Hamburgers</a>, by Jonathan Sug. The operation can be seen at <a href="https://jonsuh.com/hamburgers/" target="_blank">lib demo site</a>
-
-              <br><br>
-              Options: 3dx, 3dx-r, 3dy, 3dy-r, arrow, arrow-r, arrowalt, arrowalt-r, boring, collapse, collapse-r, elastic, elastic-r, emphatic, emphatic-r, slider, slider-r, spin, spin-r, spring, spring-r, stand, stand-r, squeeze, vortex, vortex-r
-            </td>
-          </tr>
-
-          <tr>
-            {{ helper.item('bodyClassOpen', 'Options') }}
-            <td><span class="label label-default label--string">string</span></td>
-            <td>--</td>
-            <td>Append a class in &lt;body&gt; when the menu is opened</td>
-          </tr>
-
-          <tr>
-            {{ helper.item('kitchenClass', 'Options') }}
-            <td><span class="label label-default label--string">string</span></td>
-            <td>--</td>
-            <td>
-              Append a class in MenuChef wrapper <br><br>
-              ps. Kitchen is the wrapper of MenuChef, where all the ingredients are cooked
-            </td>
-          </tr>
-
-          <tr>
-            {{ helper.item('kitchenOpenClass', 'Options') }}
-            <td><span class="label label-default label--string">string</span></td>
-            <td>--</td>
-            <td>Append a class in MenuChef when the same is opened</td>
-          </tr>
-
-          <tr>
-            {{ helper.item('onOpen', 'Options') }}
-            <td><span class="label label-default label--function">function</span></td>
-            <td>--</td>
-            <td>Callback function that's called when MenuChef is open</td>
-          </tr>
-
-          <tr>
-            {{ helper.item('onClose', 'Options') }}
-            <td><span class="label label-default label--function">function</span></td>
-            <td>--</td>
-            <td>Callback function that's called when MenuChef is close</td>
-          </tr>
-
-          <tr>
-            {{ helper.item('onClick', 'Options') }}
-            <td><span class="label label-default label--function">function</span></td>
-            <td>--</td>
-            <td>Callback function that's called when a link in MenuChef is clicked</td>
-          </tr>
-
+          {% for item in doc.options  %}
+            <tr>
+              {{ helper.item(search(item.tags, 'title', 'variable').description, item.name) }}
+              <td>{{ label(search(item.tags, 'title', 'type').description) }}</td>
+              <td>{{ search(item.tags, 'title', 'default').description }}</td>
+              <td>{{ search(item.tags, 'title', 'description').description }}</td>
+            </tr>
+          {% endfor %}
         </tbody>
       </table>
 
@@ -340,27 +248,14 @@
           </tr>
         </thead>
         <tbody>
-          <tr>
-            {{ helper.item('effectOnOpen', 'Theme-Options') }}
-            <td><span class="label label-default label--string">string</span></td>
-            <td>--</td>
-            <td>Effects on open the menu. The effects available depends of theme.<br><br>side: smooth</td>
-          </tr>
-
-          <tr>
-            {{ helper.item('direction', 'Theme-Options') }}
-            <td><span class="label label-default label--string">string</span></td>
-            <td>right</td>
-            <td>Direction to open the menu. Directions available depends of theme.<br><br>side: left, right</td>
-          </tr>
-
-          <tr>
-            {{ helper.item('pageEffect', 'Theme-Options') }}
-            <td><span class="label label-default label--string">string</span></td>
-            <td>--</td>
-            <td>Effects on page when the menu is opening. Effects available depends of theme. <br><br> side: blur</td>
-          </tr>
-
+          {% for item in doc.theme  %}
+            <tr>
+              {{ helper.item(search(item.tags, 'title', 'variable').description, item.name) }}
+              <td>{{ label(search(item.tags, 'title', 'type').description) }}</td>
+              <td>{{ search(item.tags, 'title', 'default').description }}</td>
+              <td>{{ search(item.tags, 'title', 'description').description }}</td>
+            </tr>
+          {% endfor %}
         </tbody>
       </table>
 
@@ -375,42 +270,14 @@
           </tr>
         </thead>
         <tbody>
-          <tr>
-            {{ helper.item('MenuChef.open()', 'Methods', 'MenuChef-open') }}
-            <td><span class="label label-default label--function">function</span></td>
-            <td>--</td>
-            <td>Open MenuChef</td>
-          </tr>
-
-          <tr>
-            {{ helper.item('MenuChef.close()', 'Methods', 'MenuChef-close') }}
-            <td><span class="label label-default label--function">function</span></td>
-            <td>--</td>
-            <td>Close MenuChef</td>
-          </tr>
-
-          <tr>
-            {{ helper.item('MenuChef.toggle([this, classe])', 'Methods', 'MenuChef-toggle') }}
-            <td><span class="label label-default label--function">function</span></td>
-            <td>All parameters are optional <br>
-            <code>classe</code> default is <code>is-active</code>
-            </td>
-            <td>
-              Toggle MenuChef
-
-              <br><br>
-
-              When <code>this</code> is passed, toggle is fired and return the <code>classe</code> to the element <code>this</code>. Only works when the function toggle() itself is triggered
-            </td>
-          </tr>
-
-          <tr>
-            {{ helper.item('MenuChef.destroy()', 'Methods', 'MenuChef-destroy') }}
-            <td><span class="label label-default label--function">function</span></td>
-            <td>--</td>
-            <td>Destroy MenuChef instance, HTML inserts and watchers</td>
-          </tr>
-
+          {% for item in doc.public_methods  %}
+            <tr>
+              {{ helper.item(search(item.tags, 'title', 'variable').description, item.name) }}
+              <td>{{ label(search(item.tags, 'title', 'type').description) }}</td>
+              <td>{{ search(item.tags, 'title', 'default').description }}</td>
+              <td>{{ search(item.tags, 'title', 'description').description }}</td>
+            </tr>
+          {% endfor %}
         </tbody>
       </table>
 
@@ -425,19 +292,14 @@
           </tr>
         </thead>
         <tbody>
-          <tr>
-            {{ helper.item('MenuChef.version', 'Public-Variables', 'MenuChef-version') }}
-            <td><span class="label label-default label--string">string</span></td>
-            <td>version</td>
-            <td>Return MenuChef version number</td>
-          </tr>
-
-          <tr>
-            {{ helper.item('MenuChef.isOpen', 'Public-Variables', 'MenuChef-isOpen') }}
-            <td><span class="label label-default label--boolean">boolean</span></td>
-            <td>null</td>
-            <td>Return <code>null</code> if MenuChef was never opened, <code>true</code>/<code>false</code> if MenuChef it's open or not</td>
-          </tr>
+          {% for item in doc.public_variables  %}
+            <tr>
+              {{ helper.item(search(item.tags, 'title', 'variable').description, item.name) }}
+              <td>{{ label(search(item.tags, 'title', 'type').description) }}</td>
+              <td>{{ search(item.tags, 'title', 'default').description }}</td>
+              <td>{{ search(item.tags, 'title', 'description').description }}</td>
+            </tr>
+          {% endfor %}
 
         </tbody>
       </table>
