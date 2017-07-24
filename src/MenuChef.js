@@ -127,6 +127,7 @@ class MenuChef {
        */
       closeOnClickOutside: true,
       /**
+       * @private
        * @module options
        * @variable button
        * @type string
@@ -134,6 +135,22 @@ class MenuChef {
        * @description HTML of MenuChef's button
        */
       button: buttonDefault,
+      /**
+       * @module options
+       * @variable classes
+       * @type object
+       * @default --
+       * @released 1.1.0
+       * @description Classes is a manager of classes in links passed to MenuChef. It reveives 3 properties. All properties receives ONLY <code>array</code> of classes.
+       * <br>
+       * <b>exclude</b>: remove a class or an <code>array</code> of classes
+       * <br>
+       * <b>only</b>: remove ALL classes expect this one or an <code>array</code> of classes
+       * <br>
+       * <b>include</b>: add a class or an <code>array</code> of classes
+       * <br>
+       * ps: The order of hierarchy is respected. <b>exclude</b> > <b>only</b> > <b>include</b>
+       */
       classes: {
         exclude: [],
         only: [],

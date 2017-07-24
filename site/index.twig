@@ -228,7 +228,7 @@
         <tbody>
           {% for item in doc.options  %}
             <tr>
-              {{ helper.item(search(item.tags, 'title', 'variable').description, item.name) }}
+              {{ helper.item(search(item.tags, 'title', 'variable').description, item.name, search(item.tags, 'title', 'released').description) }}
               <td>{{ label(search(item.tags, 'title', 'type').description) }}</td>
               <td>{{ search(item.tags, 'title', 'default').description }}</td>
               <td>{{ search(item.tags, 'title', 'description').description }}</td>
