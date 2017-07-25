@@ -62,11 +62,15 @@ gulp.task('compile', function () {
 });
 
 gulp.task('doc', function () {
-  exec('npm run doc');
+  exec('npm run doc:generate');
 });
 
-gulp.watch('./site/**/*.twig', ['compile']);
-gulp.watch('./site/src/**/*', ['doc']);
-gulp.watch('./doc.json', ['compile']);
+gulp.task('watch', function () {
+  gulp.watch('./site/**/*.twig', ['compile']);
+  gulp.watch('./site/src/**/*', ['doc']);
+  gulp.watch('./doc.json', ['compile']);
+});
+
 
 gulp.task('default', ['doc' ,'compile']);
+gulp.task('dev', ['default' ,'watch']);

@@ -1,12 +1,10 @@
 {
   "name": "menuchef",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "Create hamburgers' menu like a chef",
   "main": "dist/MenuChef.js",
   "dependencies": {
-    "hamburgers": "^0.8.1",
-    "import-fresh": "^2.0.0",
-    "slugg": "^1.2.1"
+    "hamburgers": "^0.8.1"
   },
   "devDependencies": {
     "babel-core": "^6.23.1",
@@ -33,16 +31,22 @@
     "uglify-js": "git://github.com/mishoo/UglifyJS2.git#harmony",
     "uglifyjs-webpack-plugin": "^0.3.0",
     "webpack": "^2.2.1",
-    "webpack-dev-server": "^2.4.1"
+    "webpack-dev-server": "^2.4.1",
+    "import-fresh": "^2.0.0",
+    "slugg": "^1.2.1"
   },
   "scripts": {
-    "start": "concurrently -k \"webpack  -w --colors\" \"npm run site\"",
-    "build": "webpack --progress --colors --optimize-minimize",
-    "dev": "webpack-dev-server",
+    "start": "npm run dev",
+    "dev": "concurrently -k \"npm run webpack:watch\" \"npm run site:dev\"",
+    "webpack:build": "webpack --colors",
+    "webpack:watch": "webpack -w --colors",
+    "webpack:dev": "webpack-dev-server",
+    "build": "npm run webpack:build && npm run site:build",
     "test": "mocha-phantomjs .\\test\\index.html",
     "precommit": "npm test",
-    "doc": "documentation build src/MenuChef.js -f json --shallow -o doc.json",
-    "site": "gulp"
+    "doc:generate": "documentation build src/MenuChef.js -f json --shallow -o doc.json",
+    "site:build": "gulp",
+    "site:dev": "gulp dev"
   },
   "author": "Matheus Falcão (https://github.com/theus)",
   "license": "MIT",

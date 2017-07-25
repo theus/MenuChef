@@ -75,7 +75,7 @@ Released under the MIT License.`),
       new UglifyJSPlugin({
         sourceMap: true,
         mangle: {
-          except: ['$super', '$', 'exports', 'require', 'MenuChef']
+          except: ['MenuChef']
         }
       })
     ]
