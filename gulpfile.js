@@ -6,9 +6,9 @@ var exec = require('child_process').exec;
 var importFresh = require('import-fresh');
 var slugg = require('slugg');
 
-const version = importFresh('./package.json').version;
+gulp.task('compile', ['doc'], function () {
+  const { version } = importFresh('./package.json');
 
-gulp.task('compile', function () {
   let docjson = collect(importFresh('./doc.json'))
   let doc = {}
 
@@ -61,13 +61,16 @@ gulp.task('compile', function () {
       .pipe(gulp.dest('./'));
 });
 
-gulp.task('doc', function () {
-  exec('npm run doc:generate');
+gulp.task('doc', function (done) {
+  exec('npm run doc:generate', function (err) {
+    if (err) return done(err);
+    done();
+  });
 });
 
 gulp.task('watch', function () {
   gulp.watch('./site/**/*.twig', ['compile']);
-  gulp.watch('./site/src/**/*', ['doc']);
+  gulp.watch('./src/**/*', ['doc']);
   gulp.watch('./doc.json', ['compile']);
 });
 
