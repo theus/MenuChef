@@ -63,9 +63,18 @@ class MenuChef {
     const DEFAULTS = {
       /**
        * @module options
+       * @variable parent
+       * @type string
+       * @default body
+       * @description Parent element where MenuChef'll placed
+       */
+      parent: 'body',
+      /**
+       * @module options
        * @variable theme
        * @type string, object
        * @default full
+       * @released 1.2.0
        * @description Theme string (name)/object to personalize specific details of MenuChef theme
        */
       theme: {
@@ -127,12 +136,14 @@ class MenuChef {
        */
       closeOnClickOutside: true,
       /**
-       * @private
        * @module options
        * @variable button
        * @type string
-       * @default hamburger
-       * @description HTML of MenuChef's button
+       * @default MenuChef's hamburger button
+       * @released 1.2.0
+       * @description HTML of MenuChef's button. You can pass your own button HTML like <code>&lt;i class=&quot;myicon&quot;&gt;&lt;/i&gt;</code>.
+       * <br>
+       * Remember: The MenuChef's button is the same for open and for close (toggle). You can control appearence of button with CSS. The button container receives the class <code>is-active</code> when MenuChef is open.
        */
       button: buttonDefault,
       /**
@@ -212,7 +223,16 @@ class MenuChef {
        * @default --
        * @description Callback function that's called when a link in MenuChef is clicked
        */
-      onClick: () => {}
+      onClick: () => {},
+      /**
+       * @module options
+       * @variable onReady
+       * @type function
+       * @default --
+       * @released 1.2.0
+       * @description Callback function that's called when MenuChef is ready and loaded
+       */
+      onReady: () => {}
     }
 
     this.version = PKG_VERSION
@@ -222,11 +242,16 @@ class MenuChef {
     if (typeof this._options.theme !== 'string' && typeof this._options.theme !== 'object') throw new Error('theme must be a string or a object')
     this._theme = (typeof this._options.theme === 'string') ? this._options.theme : this._options.theme.theme
 
+    this.$parent = document.querySelector(this._options.parent) ? document.querySelector(this._options.parent) : document.querySelector(DEFAULTS.parent)
+
+    if (this._options.parent !== DEFAULTS.parent && !this.$parent) console.warning(`parent element don't found. body will be used instead.`)
+
     this._themeOptions = (typeof this._options.theme === 'object') ? this._options.theme : {}
 
     if (typeof this._options.onOpen !== 'function') throw new Error('onOpen callback must be a function')
     if (typeof this._options.onClose !== 'function') throw new Error('onClose callback must be a function')
     if (typeof this._options.onClick !== 'function') throw new Error('onClick callback must be a function')
+    if (typeof this._options.onReady !== 'function') throw new Error('onReady callback must be a function')
 
     if (!THEMES.hasOwnProperty(this._theme)) {
       console.warn(`Theme "${this._theme}" passed in options does not exist. Default theme was setted. Themes availables: ${Object.keys(THEMES).join(', ')}`)
@@ -281,7 +306,7 @@ class MenuChef {
 
   inject (themes) {
     if (!this.ISBUTTONDEFAULT) this._options.button = `<span onclick="MenuChef.toggle()" class="MenuChefOpen MenuChefOpen--custom">${this._options.button}</span>`
-    document.body.insertAdjacentHTML('afterbegin', (themes[this._theme].html + this._options.button).replace(/{{options.hamburger}}/g, this._options.hamburger.toLowerCase()))
+    this.$parent.insertAdjacentHTML('afterbegin', (themes[this._theme].html + this._options.button).replace(/{{options.hamburger}}/g, this._options.hamburger.toLowerCase()))
     this.$openButton = document.querySelector('.MenuChefOpen')
     this._kitchen = document.querySelector(`.${this._kitchenClass}`)
     masterCook(document.body, this._classes.init.body)
@@ -292,6 +317,7 @@ class MenuChef {
     // this.$openButton.dataset.scheme = this._kitchen.dataset.scheme = this._options.scheme
     if (this.ISBUTTONDEFAULT) this.$openButton.setAttribute('data-scheme', this._options.scheme)
     this._kitchen.setAttribute('data-scheme', this._options.scheme)
+    this._options.onReady()
   }
 
   cook () {
@@ -377,7 +403,7 @@ class MenuChef {
       masterCook(self._kitchen, self._classes.open.kitchen)
       if (self._options.closeOnClickOutside) self.chefObserver('addWatch')
       self._options.onOpen()
-      if (self.ISBUTTONDEFAULT) self.$openButton.classList.add('is-active')
+      self.$openButton.classList.add('is-active')
       self._isOpen = true
     }
     /**
@@ -392,7 +418,7 @@ class MenuChef {
       masterCook(self._kitchen, self._classes.open.kitchen, 'remove')
       if (self._options.closeOnClickOutside) self.chefObserver('removeWatch')
       self._options.onClose()
-      if (self.ISBUTTONDEFAULT) self.$openButton.classList.remove('is-active')
+      self.$openButton.classList.remove('is-active')
       self._isOpen = false
     }
     /**
@@ -437,7 +463,7 @@ class MenuChef {
      * @module public_methods
      * @variable MenuChef.destroy()
      * @type function
-     * @default All parameters are optional <br> <code>classe</code> default is <code>is-active</code>
+     * @default -
      * @description Destroy MenuChef instance, HTML inserts and watchers
      */
     MenuChef.destroy = function () {
@@ -459,7 +485,6 @@ class MenuChef {
       document.removeEventListener('click', MenuChef._watcher, true)
     }
   }
-
 }
 
 window.MenuChef = MenuChef

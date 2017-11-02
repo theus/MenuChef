@@ -192,6 +192,17 @@ describe('MenuChef options', function () {
     MenuChef.destroy();
   });
 
+  it('Change parent element', function () {
+    expect(document.querySelector('#menu .MenuChef')).to.be.null;
+
+    var menu = new MenuChef('.js-Menu a', {
+      parent: '#menu'
+    });
+
+    expect(document.querySelector('#menu .MenuChef')).to.be.not.null;
+    MenuChef.destroy();
+  });
+
 });
 
 describe('MenuChef options callbacks', function () {
@@ -236,6 +247,23 @@ describe('MenuChef options callbacks', function () {
     eventFire(document.querySelector('.MenuChef-links-link'), 'click');
     expect(executed).to.be.true;
     MenuChef.close();
+    MenuChef.destroy();
+  });
+
+  it('onReady() should execute on ready', function () {
+    MenuChef.destroy();
+    var executed = false;
+    expect(executed).to.be.false;
+    expect(document.querySelector('.MenuChef')).to.be.null;
+    
+    var menu = new MenuChef('.js-Menu a', {
+      onReady: function () {
+        executed = true;
+      }
+    });
+
+    expect(document.querySelector('.MenuChef')).to.be.not.null;
+    expect(executed).to.be.true;
     MenuChef.destroy();
   });
 });

@@ -18,10 +18,12 @@
 
   <button onclick="MenuChef.toggle(this)">yolo</button>
 
+  <div id="menu"></div>
 
   <script src="MenuChef.js"></script>
   <script>
     new MenuChef('.js-Menu a', {
+      parent: '#menu',
       theme: {
         theme: 'side',
         effectOnOpen: 'smooth'
@@ -30,6 +32,9 @@
       hamburger: 'vortex-r',
       classes: {
         only: ['class-foo']
+      },
+      onReady: function () {
+        console.log(document.querySelector('.MenuChef'))
       }
     });
 

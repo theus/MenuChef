@@ -88,7 +88,7 @@
         <div class="Header-logo-slogan">
           Create hamburgers' menu like a chef
           <br>
-          <span>v1.1.1</span>
+          <span>v1.2.0</span>
         </div>
         <div class="Header-logo-btns">
           <a class="github-button" href="https://github.com/theus/MenuChef" data-icon="octicon-star" data-show-count="true" aria-label="Star theus/instantgargom on GitHub" data-size="large">Star</a>
@@ -271,7 +271,7 @@
         You can download the latest version of MenuChef in <a href="https://github.com/theus/menuchef">Github</a> or can use the unpkg CDN
       </p>
 
-      <pre><code class="language-html">&lt;script src="//unpkg.com/menuchef@1.1.1"&gt;&lt;/script&gt;</code></pre>
+      <pre><code class="language-html">&lt;script src="//unpkg.com/menuchef@1.2.0"&gt;&lt;/script&gt;</code></pre>
 
     </div>
 
@@ -347,8 +347,26 @@
             <tr>
               
 	  
+	<td id="options-parent">
+		<a href="#options-parent" class="NutricionalTable-table-link"><i class="fa fa-link"></i></a>
+		
+		parent
+	</td>
+
+              <td><span class="label label-default label--string">string</span></td>
+              <td>body</td>
+              <td>Parent element where MenuChef'll placed</td>
+            </tr>
+          
+            <tr>
+              
+	  
 	<td id="options-theme">
 		<a href="#options-theme" class="NutricionalTable-table-link"><i class="fa fa-link"></i></a>
+		
+			<a href="https://github.com/theus/MenuChef/releases/tag/v1.2.0" target="_blank" style="text-decoration: none;">
+				<span class="label label-info" style="zoom: 0.8;" title="Released in MenuChef's 1.2.0 version">v1.2.0</span>
+			</a>
 		
 		theme
 	</td>
@@ -403,10 +421,32 @@
             <tr>
               
 	  
+	<td id="options-button">
+		<a href="#options-button" class="NutricionalTable-table-link"><i class="fa fa-link"></i></a>
+		
+			<a href="https://github.com/theus/MenuChef/releases/tag/v1.2.0" target="_blank" style="text-decoration: none;">
+				<span class="label label-info" style="zoom: 0.8;" title="Released in MenuChef's 1.2.0 version">v1.2.0</span>
+			</a>
+		
+		button
+	</td>
+
+              <td><span class="label label-default label--string">string</span></td>
+              <td>MenuChef's hamburger button</td>
+              <td>HTML of MenuChef's button. You can pass your own button HTML like <code>&lt;i class=&quot;myicon&quot;&gt;&lt;/i&gt;</code>.
+<br>
+Remember: The MenuChef's button is the same for open and for close (toggle). You can control appearence of button with CSS. The button container receives the class <code>is-active</code> when MenuChef is open.</td>
+            </tr>
+          
+            <tr>
+              
+	  
 	<td id="options-classes">
 		<a href="#options-classes" class="NutricionalTable-table-link"><i class="fa fa-link"></i></a>
 		
-			<span class="label label-info" style="zoom: 0.8;" title="Released in MenuChef's 1.1.0 version">v1.1.0</span>
+			<a href="https://github.com/theus/MenuChef/releases/tag/v1.1.0" target="_blank" style="text-decoration: none;">
+				<span class="label label-info" style="zoom: 0.8;" title="Released in MenuChef's 1.1.0 version">v1.1.0</span>
+			</a>
 		
 		classes
 	</td>
@@ -520,6 +560,24 @@ ps: The order of hierarchy is respected. <b>exclude</b> > <b>only</b> > <b>inclu
               <td><span class="label label-default label--function">function</span></td>
               <td>--</td>
               <td>Callback function that's called when a link in MenuChef is clicked</td>
+            </tr>
+          
+            <tr>
+              
+	  
+	<td id="options-onready">
+		<a href="#options-onready" class="NutricionalTable-table-link"><i class="fa fa-link"></i></a>
+		
+			<a href="https://github.com/theus/MenuChef/releases/tag/v1.2.0" target="_blank" style="text-decoration: none;">
+				<span class="label label-info" style="zoom: 0.8;" title="Released in MenuChef's 1.2.0 version">v1.2.0</span>
+			</a>
+		
+		onReady
+	</td>
+
+              <td><span class="label label-default label--function">function</span></td>
+              <td>--</td>
+              <td>Callback function that's called when MenuChef is ready and loaded</td>
             </tr>
           
         </tbody>
@@ -660,7 +718,7 @@ ps: The order of hierarchy is respected. <b>exclude</b> > <b>only</b> > <b>inclu
 	</td>
 
               <td><span class="label label-default label--function">function</span></td>
-              <td>All parameters are optional <br> <code>classe</code> default is <code>is-active</code></td>
+              <td>-</td>
               <td>Destroy MenuChef instance, HTML inserts and watchers</td>
             </tr>
           
@@ -931,7 +989,8 @@ ps: The order of hierarchy is respected. <b>exclude</b> > <b>only</b> > <b>inclu
 
   onOpen: function () {},
   onClose: function () {},
-  onClick: function () {}
+  onClick: function () {},
+  onReady: function () {}
 });</code></pre>
 
     </div>
