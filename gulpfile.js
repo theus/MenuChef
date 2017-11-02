@@ -62,7 +62,7 @@ gulp.task('compile', ['doc'], function () {
 });
 
 gulp.task('doc', function (done) {
-  exec('npm run doc:generate', function (err) {
+  exec('node .\\node_modules\\documentation\\bin\\documentation.js build src/MenuChef.js -f json --shallow -o doc.json', function (err) {
     if (err) return done(err);
     done();
   });
