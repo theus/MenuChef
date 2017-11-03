@@ -434,9 +434,14 @@
         "lineNumber": 4
       },
       {
+        "title": "released",
+        "description": "1.2.0",
+        "lineNumber": 5
+      },
+      {
         "title": "description",
         "description": "Parent element where MenuChef'll placed",
-        "lineNumber": 5
+        "lineNumber": 6
       }
     ],
     "loc": {
@@ -445,18 +450,18 @@
         "column": 6
       },
       "end": {
-        "line": 70,
+        "line": 71,
         "column": 9
       }
     },
     "context": {
       "loc": {
         "start": {
-          "line": 71,
+          "line": 72,
           "column": 6
         },
         "end": {
-          "line": 71,
+          "line": 72,
           "column": 20
         }
       },
@@ -571,19 +576,14 @@
         "lineNumber": 4
       },
       {
-        "title": "released",
-        "description": "1.2.0",
-        "lineNumber": 5
-      },
-      {
         "title": "description",
         "description": "Theme string (name)/object to personalize specific details of MenuChef theme",
-        "lineNumber": 6
+        "lineNumber": 5
       }
     ],
     "loc": {
       "start": {
-        "line": 72,
+        "line": 73,
         "column": 6
       },
       "end": {

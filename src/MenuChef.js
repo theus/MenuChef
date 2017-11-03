@@ -66,6 +66,7 @@ class MenuChef {
        * @variable parent
        * @type string
        * @default body
+       * @released 1.2.0
        * @description Parent element where MenuChef'll placed
        */
       parent: 'body',
@@ -74,7 +75,6 @@ class MenuChef {
        * @variable theme
        * @type string, object
        * @default full
-       * @released 1.2.0
        * @description Theme string (name)/object to personalize specific details of MenuChef theme
        */
       theme: {
