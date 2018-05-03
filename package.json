@@ -4,16 +4,16 @@
   "description": "Create hamburgers' menu like a chef",
   "main": "dist/MenuChef.js",
   "dependencies": {
-    "hamburgers": "^0.8.1"
+    "hamburgers": "^0.9.3"
   },
   "devDependencies": {
-    "babel-core": "^6.23.1",
-    "babel-loader": "^7.1.2",
+    "babel-core": "^6.23.3",
+    "babel-loader": "^7.1.4",
     "babel-preset-es2015": "^6.22.0",
     "chai": "^3.5.0",
     "collect.js": "^3.0.46",
     "concurrently": "^3.5.0",
-    "css-loader": "^0.28.7",
+    "css-loader": "^0.28.11",
     "documentation": "^4.0.0-rc.1",
     "extract-loader": "^1.0.1",
     "gulp": "^3.9.1",
@@ -21,7 +21,7 @@
     "html-loader": "^0.5.1",
     "husky": "^0.14.3",
     "import-fresh": "^2.0.0",
-    "lodash-es": "^4.17.4",
+    "lodash-es": "^4.17.10",
     "mocha-phantomjs": "^4.1.0",
     "mocha-phantomjs-core": "^2.1.1",
     "node-sass": "^4.9.0",
