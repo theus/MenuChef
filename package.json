@@ -1,6 +1,6 @@
 {
   "name": "menuchef",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "Create hamburgers' menu like a chef",
   "main": "dist/MenuChef.js",
   "dependencies": {
@@ -24,7 +24,7 @@
     "lodash-es": "^4.17.4",
     "mocha-phantomjs": "^4.1.0",
     "mocha-phantomjs-core": "^2.1.1",
-    "node-sass": "^4.5.0",
+    "node-sass": "^4.9.0",
     "sass-loader": "^6.0.1",
     "slugg": "^1.2.1",
     "standard": "^10.0.3",
@@ -40,7 +40,7 @@
     "webpack:watch": "webpack -w --colors",
     "webpack:dev": "webpack-dev-server",
     "build": "npm run webpack:build && npm run site:build",
-    "test": "mocha-phantomjs .\\test\\index.html",
+    "test": "npm run build && mocha-phantomjs .\\test\\index.html",
     "precommit": "npm test",
     "doc:generate": "gulp doc",
     "site:build": "gulp",
