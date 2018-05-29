@@ -307,27 +307,41 @@
       <h2 id="Theming-Vars" class="NutricionalTable-table-title">Theming Vars</h2>
 
       <p>
-        MenuChef was created with <a href="http://caniuse.com/#feat=css-variables" target="_blank">CSS variables</a>, so it's very easy change some elements of the interface just changing a couple of variables, with sort, without change the CSS in fact. The support of CSS variables isn't complete yet in some browsers, so if you want support those browsers, you can overwrite CSS theme default below.
+        MenuChef was created with <a href="http://caniuse.com/#feat=css-variables" target="_blank">CSS variables</a>, so it's very easy change some elements of the interface just changing a couple of variables, with sort, without change the CSS in fact. The support of CSS variables isn't complete yet in some browsers, so if you want support those browsers, you can overwrite CSS theme default below. If you choose overwrite the CSS theme, don't forget to put <code>!important</code> because the MenuChef's style is injected by JS, so you CSS can't overwrite by cascade.
       </p>
 
-      <pre class="Code"><code class="language-css">.MenuChefOpen[data-scheme].is-active .hamburger-inner, .MenuChefOpen[data-scheme].is-active .hamburger-inner::before, .MenuChefOpen[data-scheme].is-active .hamburger-inner::after {
-  background-color: #A0A1A5;
-  background-color: var(--MenuChef-scheme-color, #A0A1A5);
+      <pre class="Code"><code class="language-css">/* open hamburger button */
+.MenuChefOpen .hamburger-inner,
+.MenuChefOpen .hamburger-inner::before,
+.MenuChefOpen .hamburger-inner::after {
+  background-color: #A0A1A5 !important; /* fallback */
+  background-color: var(--MenuChef-scheme-color, #A0A1A5) !important; /* try use CSS var with fallback */
 }
 
-.MenuChef[data-scheme] {
-  background-color: #28292E;
-  background-color: var(--MenuChef-scheme-bgcolor, #28292E);
+/* close hamburger button */
+.MenuChefOpen.is-active .hamburger-inner,
+.MenuChefOpen.is-active .hamburger-inner::before,
+.MenuChefOpen.is-active .hamburger-inner::after {
+  background-color: #28292E !important; /* fallback */
+  background-color: var(--MenuChef-scheme-color, #28292E) !important; /* try use CSS var with fallback */
 }
 
-.MenuChef[data-scheme] .MenuChef-links-link {
-  color: #A0A1A5;
-  color: var(--MenuChef-scheme-color, #A0A1A5);
+/* Menuchef kitchen: link's area */
+.MenuChef {
+  background-color: #28292E !important; /* fallback */
+  background-color: var(--MenuChef-scheme-bgcolor, #28292E) !important; /* try use CSS var with fallback */
 }
 
-.MenuChef[data-scheme] .MenuChef-links-link:hover {
-  color: #86878c;
-  color: var(--MenuChef-scheme-color-hover, #86878c);
+/* Menuchef links */
+.MenuChef .MenuChef-links-link {
+  color: #A0A1A5  !important; /* fallback */
+  color: var(--MenuChef-scheme-color, #A0A1A5)  !important; /* try use CSS var with fallback */
+}
+
+/* Menuchef links hover */
+.MenuChef .MenuChef-links-link:hover {
+  color: #86878c  !important; /* fallback */
+  color: var(--MenuChef-scheme-color-hover, #86878c)  !important; /* try use CSS var with fallback */
 }</code></pre>
 
       <table class="table table-hover">
