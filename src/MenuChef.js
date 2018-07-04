@@ -6,6 +6,7 @@ import setIF from './helpers/setIF'
 import masterCook from './helpers/masterCook'
 import setPublicVar from './helpers/setPublicVar'
 import forEach from './helpers/forEach'
+import noScroll from 'no-scroll'
 
 // Theme assets
 import './templates/main.scss'
@@ -405,6 +406,7 @@ class MenuChef {
       self._options.onOpen()
       self.$openButton.classList.add('is-active')
       self._isOpen = true
+      noScroll.on()
     }
     /**
      * @module public_methods
@@ -420,6 +422,7 @@ class MenuChef {
       self._options.onClose()
       self.$openButton.classList.remove('is-active')
       self._isOpen = false
+      noScroll.off()
     }
     /**
      * @module public_methods

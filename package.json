@@ -1,10 +1,11 @@
 {
   "name": "menuchef",
   "version": "1.2.1",
-  "description": "Create hamburgers' menu like a chef",
+  "description": "Create hamburgers’ menu like a chef",
   "main": "dist/MenuChef.js",
   "dependencies": {
-    "hamburgers": "^0.9.3"
+    "hamburgers": "^0.9.3",
+    "no-scroll": "^2.1.1"
   },
   "devDependencies": {
     "babel-core": "^6.26.3",
