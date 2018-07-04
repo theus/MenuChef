@@ -114,6 +114,15 @@ class MenuChef {
       },
       /**
        * @module options
+       * @variable preventScroll
+       * @type boolean
+       * @default false
+       * @released 1.3.0
+       * @description Prevent page scrolling while menu is open
+       */
+      preventScroll: false,
+      /**
+       * @module options
        * @variable scheme
        * @type string
        * @default black
@@ -406,7 +415,7 @@ class MenuChef {
       self._options.onOpen()
       self.$openButton.classList.add('is-active')
       self._isOpen = true
-      noScroll.on()
+      if (self._options.preventScroll) noScroll.on()
     }
     /**
      * @module public_methods
@@ -422,7 +431,7 @@ class MenuChef {
       self._options.onClose()
       self.$openButton.classList.remove('is-active')
       self._isOpen = false
-      noScroll.off()
+      if (self._options.preventScroll) noScroll.off()
     }
     /**
      * @module public_methods
